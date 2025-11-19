@@ -9,7 +9,7 @@ import { CompanyProfile } from './types';
 const companies: CompanyProfile[] = [
   {
     id: '1',
-    name: 'Ronak Capital',
+    name: 'Ronak Ventures',
     description: 'Strategic capital providing access to value creation opportunities in the lower middle market to middle class individuals.',
     icon: LineChart,
     href: '#',
@@ -97,7 +97,7 @@ const App: React.FC = () => {
         <section className="flex-grow flex flex-col justify-center items-center text-center py-20 lg:py-32">
           <div className={`transition-all duration-1000 ease-out delay-300 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 leading-[1.1]">
-              RONAK <span className="text-[#006464]">VENTURES</span>
+              THE KANDELA <span className="text-[#006464]">GROUP</span>
             </h1>
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#006464] to-transparent mx-auto mb-8"></div>
             <p className="max-w-2xl mx-auto text-sm md:text-base text-slate-400 font-light tracking-wide leading-relaxed">
@@ -136,7 +136,7 @@ const App: React.FC = () => {
         <footer className="py-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-600 font-light tracking-wider">
           
           {/* Copyright */}
-          <p className="order-2 md:order-1">&copy; {new Date().getFullYear()} Ronak Ventures LLC. All Rights Reserved.</p>
+          <p className="order-2 md:order-1">&copy; {new Date().getFullYear()} The Kandela Group LLC. All Rights Reserved.</p>
           
           {/* Social Icons */}
           <div className="flex items-center gap-6 order-1 md:order-2">

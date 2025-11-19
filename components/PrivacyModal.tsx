@@ -49,7 +49,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           <p className="text-xs text-slate-500 uppercase tracking-wider mb-4">Last updated: {new Date().toLocaleDateString()}</p>
           
           <p>
-            At Ronak Ventures, we respect your privacy and are committed to protecting the personal information you share with us. This policy explains how we collect, use, and safeguard your information.
+            At The Kandela Group, we respect your privacy and are committed to protecting the personal information you share with us. This policy explains how we collect, use, and safeguard your information.
           </p>
 
           <h3 className="text-white font-medium text-base mt-6 mb-2">1. Information We Collect</h3>
@@ -65,7 +65,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
             <li>Provide, operate, and maintain our website;</li>
             <li>Respond to your inquiries, comments, or feedback;</li>
             <li>Improve our services and website functionality;</li>
-            <li>Send you updates or information related to Ronak Ventures, if you have opted in to receive such communications.</li>
+            <li>Send you updates or information related to The Kandela Group, if you have opted in to receive such communications.</li>
           </ul>
 
           <h3 className="text-white font-medium text-base mt-6 mb-2">3. Cookies and Tracking</h3>

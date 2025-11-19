@@ -130,14 +130,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             </div>
             <h2 className="font-serif text-3xl text-white mb-3">Message Sent</h2>
             <p className="text-slate-400 font-light text-sm max-w-xs mx-auto leading-relaxed">
-              Thank you for reaching out to Ronak Ventures. We will review your inquiry and get back to you shortly.
+              Thank you for reaching out to The Kandela Group. We will review your inquiry and get back to you shortly.
             </p>
           </div>
         ) : (
           <>
             <h2 className="font-serif text-3xl text-white mb-2">Get in Touch</h2>
             <p className="text-slate-400 font-light text-sm mb-8">
-              Interested in working with Ronak Ventures? Send us a message.
+              Interested in working with The Kandela Group? Send us a message.
             </p>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
