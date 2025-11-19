@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Briefcase, Clapperboard, ChevronDown } from 'lucide-react';
+import { LineChart, Briefcase, Clapperboard, ChevronDown, Twitter, Linkedin, Mail } from 'lucide-react';
 import CompanyCard from './components/CompanyCard';
+import ContactModal from './components/ContactModal';
+import TermsModal from './components/TermsModal';
+import PrivacyModal from './components/PrivacyModal';
 import { CompanyProfile } from './types';
 
 const companies: CompanyProfile[] = [
@@ -29,10 +32,31 @@ const companies: CompanyProfile[] = [
 
 const App: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
   }, []);
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsContactOpen(true);
+  };
+
+  const handleScrollToSection = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="relative min-h-screen w-full bg-slate-950 text-slate-200 overflow-x-hidden selection:bg-[#006464] selection:text-white">
@@ -49,12 +73,23 @@ const App: React.FC = () => {
         
         {/* Navigation / Header (Minimal) */}
         <header className={`flex justify-between items-center py-10 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="flex items-center gap-2">
-             <div className="w-3 h-3 bg-[#006464] rounded-full"></div>
-             <span className="text-xs font-light tracking-[0.2em] text-slate-400 uppercase">Holding Corp</span>
-          </div>
+          <a 
+            href="#" 
+            onClick={handleScrollToTop}
+            className="flex items-center gap-2 group cursor-pointer"
+            aria-label="Scroll to top"
+          >
+             <div className="w-3 h-3 bg-[#006464] rounded-full transition-all duration-500 ease-out group-hover:scale-125 group-hover:bg-[#007d7d] group-hover:shadow-[0_0_15px_rgba(0,100,100,0.6)]"></div>
+             <span className="text-xs font-light tracking-[0.2em] text-slate-400 uppercase transition-colors duration-300 group-hover:text-slate-200">Holding Corp</span>
+          </a>
           <nav>
-             <a href="#" className="text-xs font-light tracking-widest text-slate-500 hover:text-white transition-colors">CONTACT</a>
+             <a 
+               href="#" 
+               onClick={handleContactClick}
+               className="text-xs font-light tracking-widest text-slate-500 hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-[#006464] hover:after:w-full after:transition-all after:duration-300"
+             >
+               CONTACT
+             </a>
           </nav>
         </header>
 
@@ -72,14 +107,19 @@ const App: React.FC = () => {
           
           {/* Scroll Indicator */}
           <div className={`mt-24 transition-opacity duration-1000 delay-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="animate-bounce">
-              <ChevronDown className="text-slate-600" size={24} strokeWidth={1} />
-            </div>
+            <a 
+              href="#portfolio"
+              onClick={(e) => handleScrollToSection(e, 'portfolio')}
+              className="inline-block animate-bounce cursor-pointer"
+              aria-label="Scroll to portfolio"
+            >
+              <ChevronDown className="text-slate-600 hover:text-[#006464] transition-colors duration-300" size={24} strokeWidth={1} />
+            </a>
           </div>
         </section>
 
         {/* Portfolio Grid Section */}
-        <section className="w-full pb-24">
+        <section id="portfolio" className="w-full pb-24 scroll-mt-24">
           <div className={`mb-12 flex items-center gap-4 transition-all duration-1000 delay-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
              <span className="h-px w-8 bg-[#006464]"></span>
              <h2 className="text-xs font-light tracking-[0.3em] uppercase text-slate-400">Our Portfolio</h2>
@@ -93,15 +133,66 @@ const App: React.FC = () => {
         </section>
 
         {/* Footer */}
-        <footer className="py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 font-light tracking-wider">
-          <p>&copy; {new Date().getFullYear()} Ronak Ventures LLC. All Rights Reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-[#006464] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#006464] transition-colors">Terms of Service</a>
+        <footer className="py-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-600 font-light tracking-wider">
+          
+          {/* Copyright */}
+          <p className="order-2 md:order-1">&copy; {new Date().getFullYear()} Ronak Ventures LLC. All Rights Reserved.</p>
+          
+          {/* Social Icons */}
+          <div className="flex items-center gap-6 order-1 md:order-2">
+            <a href="#" className="group" aria-label="Twitter">
+              <Twitter size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
+            </a>
+            <a href="#" className="group" aria-label="LinkedIn">
+              <Linkedin size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
+            </a>
+            <a href="#" className="group" aria-label="Email">
+              <Mail size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
+            </a>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex gap-6 order-3 md:order-3">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                setIsPrivacyOpen(true);
+              }} 
+              className="hover:text-[#006464] transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                setIsTermsOpen(true);
+              }} 
+              className="hover:text-[#006464] transition-colors"
+            >
+              Terms of Service
+            </a>
           </div>
         </footer>
 
       </main>
+
+      {/* Modals */}
+      <ContactModal 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
+      />
+      
+      <TermsModal
+        isOpen={isTermsOpen}
+        onClose={() => setIsTermsOpen(false)}
+      />
+
+      <PrivacyModal
+        isOpen={isPrivacyOpen}
+        onClose={() => setIsPrivacyOpen(false)}
+      />
     </div>
   );
 };
