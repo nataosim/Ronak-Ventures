@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Briefcase, Clapperboard, ChevronDown, Twitter, Linkedin, Mail } from 'lucide-react';
+import { LineChart, Briefcase, Clapperboard, ChevronDown, Mail } from 'lucide-react';
 import CompanyCard from './components/CompanyCard';
 import ContactModal from './components/ContactModal';
 import TermsModal from './components/TermsModal';
@@ -140,11 +140,15 @@ const App: React.FC = () => {
           
           {/* Social Icons */}
           <div className="flex items-center gap-6 order-1 md:order-2">
-            <a href="#" className="group" aria-label="Twitter">
-              <Twitter size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
-            </a>
-            <a href="#" className="group" aria-label="LinkedIn">
-              <Linkedin size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
+            <a href="#" className="group" aria-label="X">
+              <svg 
+                viewBox="0 0 24 24" 
+                width="18" 
+                height="18" 
+                className="text-slate-600 fill-current transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1"
+              >
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
             </a>
             <a href="#" className="group" aria-label="Email">
               <Mail size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
