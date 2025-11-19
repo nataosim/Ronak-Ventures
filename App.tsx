@@ -145,13 +145,13 @@ const App: React.FC = () => {
                 viewBox="0 0 24 24" 
                 width="18" 
                 height="18" 
-                className="text-slate-600 fill-current transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1"
+                className="text-slate-600 fill-current transition-all duration-300 group-hover:text-teal-400 group-hover:scale-125 group-hover:-translate-y-1"
               >
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
             </a>
-            <a href="#" className="group" aria-label="Email">
-              <Mail size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-[#006464] group-hover:scale-125 group-hover:-translate-y-1" />
+            <a href="mailto:info@ronakventures.com" className="group" aria-label="Email">
+              <Mail size={18} strokeWidth={1.5} className="text-slate-600 transition-all duration-300 group-hover:text-teal-400 group-hover:scale-125 group-hover:-translate-y-1" />
             </a>
           </div>
 
@@ -163,7 +163,7 @@ const App: React.FC = () => {
                 e.preventDefault();
                 setIsPrivacyOpen(true);
               }} 
-              className="hover:text-[#006464] transition-colors"
+              className="hover:text-teal-400 transition-all duration-300 hover:scale-105 inline-block"
             >
               Privacy Policy
             </a>
@@ -173,7 +173,7 @@ const App: React.FC = () => {
                 e.preventDefault();
                 setIsTermsOpen(true);
               }} 
-              className="hover:text-[#006464] transition-colors"
+              className="hover:text-teal-400 transition-all duration-300 hover:scale-105 inline-block"
             >
               Terms of Service
             </a>
